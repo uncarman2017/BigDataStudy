@@ -6,18 +6,17 @@ import java.io.IOException;
 
 import org.apache.hadoop.io.Writable;
 
-//����Ա��
-//���ݣ�7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30
+
 public class Emp implements Writable {
 
-    private int empno;//Ա����
-    private String ename; //Ա������
-    private String job; //ְλ
-    private int mgr; //�����Ա����
-    private String hiredate;//��ְ����
-    private int sal; //��н
-    private int comm; //����
-    private int deptno; //���ź�
+    private int empno;
+    private String ename;
+    private String job;
+    private int mgr;
+    private String hiredate;
+    private int sal;
+    private int comm;
+    private int deptno;
 
 
     @Override
@@ -27,7 +26,7 @@ public class Emp implements Writable {
 
     @Override
     public void readFields(DataInput input) throws IOException {
-        //ʵ�ַ����л������������ж�ȡ����
+
         this.empno = input.readInt();
         this.ename = input.readUTF();
         this.job = input.readUTF();
@@ -40,7 +39,7 @@ public class Emp implements Writable {
 
     @Override
     public void write(DataOutput output) throws IOException {
-        // ʵ�����л����Ѷ�������������
+
         output.writeInt(this.empno);
         output.writeUTF(this.ename);
         output.writeUTF(this.job);

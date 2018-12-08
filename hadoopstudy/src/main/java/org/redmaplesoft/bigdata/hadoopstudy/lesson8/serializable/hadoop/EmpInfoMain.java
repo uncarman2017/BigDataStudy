@@ -15,7 +15,7 @@ public class EmpInfoMain {
 
         job.setMapperClass(EmpInfoMapper.class);
         job.setMapOutputKeyClass(IntWritable.class);
-        job.setMapOutputValueClass(Emp.class);  // Êä³ö¾ÍÊÇÔ±¹¤¶ÔÏó
+        job.setMapOutputValueClass(Emp.class);
 
         job.setOutputKeyClass(IntWritable.class);
         job.setOutputValueClass(Emp.class);

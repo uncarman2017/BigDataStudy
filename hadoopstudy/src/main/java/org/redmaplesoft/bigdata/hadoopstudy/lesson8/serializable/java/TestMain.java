@@ -7,13 +7,12 @@ import java.io.OutputStream;
 public class TestMain {
 
     public static void main(String[] args) throws Exception {
-        // ����һ��ѧ������
         Student s = new Student();
         s.setStuID(1);
         s.setStuName("Tom");
 
-        //��������󱣴浽�ļ��� -----> ���л�
-        OutputStream out = new FileOutputStream("d:\\temp\\student.ooo");
+
+        OutputStream out = new FileOutputStream("d:\\externaldata\\student.ooo");
         ObjectOutputStream oos = new ObjectOutputStream(out);
 
         oos.writeObject(s);

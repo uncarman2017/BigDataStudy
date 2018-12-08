@@ -1,13 +1,16 @@
 package org.redmaplesoft.bigdata.hadoopstudy.lesson7;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.redmaplesoft.bigdata.hadoopstudy.utils.MyFileUtil;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -15,15 +18,28 @@ import java.io.IOException;
  */
 public class WordCountMain {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
-// 本地执行
-        //        System.setProperty("HADOOP_USER_NAME", "root");
-//        System.setProperty("hadoop.home.dir", "D:\\hadoop-2.7.7");
+
         Configuration config = new Configuration();
-        // 本地执行
+
+        //region 本地执行
+//        System.setProperty("HADOOP_USER_NAME", "root");
+//        System.setProperty("hadoop.home.dir", "D:\\hadoop-2.7.7");
 //        config.set("fs.defaultFS", "hdfs://localhost:9000");
 //        config.set("yarn.resourcemanager.hostname", "localhost");
+//        MyFileUtil.delFolder(args[1]);
+
+        //endregion
+        // 在服务端执行无效,待查
+        boolean delOk = FileUtil.fullyDelete(new File(args[1]));
+        if(delOk){
+            System.out.println("delete folder " + args[1] + " success!");
+        }
+        else {
+            System.out.println("delete folder " + args[1] + " failure");
+        }
 
         //1. 创建一个任务
+        //TODO: 本地执行时抛出一个异常, 但程序能继续执行
         Job job = Job.getInstance(config);
         // 任务入口
         job.setJarByClass(WordCountMain.class);

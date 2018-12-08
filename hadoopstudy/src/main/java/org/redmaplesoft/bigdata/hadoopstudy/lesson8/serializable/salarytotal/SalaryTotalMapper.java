@@ -7,19 +7,18 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-//                                                                k2�����ź�           v2��Ա������
+//                                                                k2: 部门编号  v2: 员工
 public class SalaryTotalMapper extends Mapper<LongWritable, Text, IntWritable, Emp> {
 
     @Override
     protected void map(LongWritable key1, Text value1, Context context)
             throws IOException, InterruptedException {
-        // ���ݣ�7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30
+
         String data = value1.toString();
 
-        //�ִ�
+        //分词
         String[] words = data.split(",");
 
-        //����Ա������
         Emp emp = new Emp();
         emp.setEmpno(Integer.parseInt(words[0]));
         emp.setEname(words[1]);
@@ -30,7 +29,6 @@ public class SalaryTotalMapper extends Mapper<LongWritable, Text, IntWritable, E
         emp.setComm(Integer.parseInt(words[6]));
         emp.setDeptno(Integer.parseInt(words[7]));
 
-        //���Ա������  k2:���ź�                                                                     v2��Ա������
         context.write(new IntWritable(emp.getDeptno()), emp);
     }
 }
