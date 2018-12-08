@@ -1,4 +1,4 @@
-package org.redmaplesoft.bigdata.hadoopstudy.mapreduce;
+package org.redmaplesoft.bigdata.hadoopstudy.lesson8.salarytotal;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.mapreduce.Reducer;

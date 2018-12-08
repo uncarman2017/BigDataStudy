@@ -1,4 +1,4 @@
-package org.redmaplesoft.bigdata.hadoopstudy.mapreduce;
+package org.redmaplesoft.bigdata.hadoopstudy.lesson7;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -14,9 +14,17 @@ import java.io.IOException;
  * 单词计数主程序
  */
 public class WordCountMain {
-    public static void main(String[] args) throws IOException,ClassNotFoundException,InterruptedException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+// 本地执行
+        //        System.setProperty("HADOOP_USER_NAME", "root");
+//        System.setProperty("hadoop.home.dir", "D:\\hadoop-2.7.7");
+        Configuration config = new Configuration();
+        // 本地执行
+//        config.set("fs.defaultFS", "hdfs://localhost:9000");
+//        config.set("yarn.resourcemanager.hostname", "localhost");
+
         //1. 创建一个任务
-        Job job = Job.getInstance(new Configuration());
+        Job job = Job.getInstance(config);
         // 任务入口
         job.setJarByClass(WordCountMain.class);
 
@@ -35,8 +43,8 @@ public class WordCountMain {
         job.setMapOutputValueClass(IntWritable.class);
 
         //4. 指定任务的输入路径，输出路径
-        FileInputFormat.setInputPaths(job,new Path(args[0]));
-        FileOutputFormat.setOutputPath(job,new Path(args[1]));
+        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         //5. 执行任务
         job.waitForCompletion(true);

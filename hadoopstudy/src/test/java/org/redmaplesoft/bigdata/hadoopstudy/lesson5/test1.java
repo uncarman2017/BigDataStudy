@@ -1,4 +1,4 @@
-package org.redmaplesoft.bigdata.hadoopstudy.test;
+package org.redmaplesoft.bigdata.hadoopstudy.lesson5;
 
 import junit.framework.TestCase;
 import org.apache.hadoop.conf.Configuration;
