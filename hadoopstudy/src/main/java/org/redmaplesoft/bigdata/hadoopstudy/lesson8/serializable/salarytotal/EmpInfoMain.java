@@ -42,6 +42,9 @@ public class EmpInfoMain {
         job.setMapOutputKeyClass(IntWritable.class);
         job.setMapOutputValueClass(Emp.class);
 
+        // 指定自己的比较规则
+        job.setSortComparatorClass(MyNumberComparator.class);
+
         //3、指定任务的reducer和reducer输出的类型
         job.setReducerClass(SalaryTotalReducer.class);
         job.setOutputKeyClass(IntWritable.class);

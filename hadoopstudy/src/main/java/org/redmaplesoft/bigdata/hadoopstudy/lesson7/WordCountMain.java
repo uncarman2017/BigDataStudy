@@ -8,6 +8,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
 import org.redmaplesoft.bigdata.hadoopstudy.utils.MyFileUtil;
 
 import java.io.File;
@@ -50,6 +51,11 @@ public class WordCountMain {
         job.setMapOutputKeyClass(Text.class);
         // v2的数据类型
         job.setMapOutputValueClass(IntWritable.class);
+
+        //  指定自己的比较规则
+        job.setSortComparatorClass(MyTextComparator.class);
+        //加入Combiner
+        job.setCombinerClass(WordCountReducer.class);
 
         //3. 指定任务的reduce和reduce输出的数据类型
         job.setReducerClass(WordCountReducer.class);

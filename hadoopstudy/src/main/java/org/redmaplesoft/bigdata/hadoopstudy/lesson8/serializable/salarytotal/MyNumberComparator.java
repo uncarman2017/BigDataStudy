@@ -3,7 +3,7 @@ package org.redmaplesoft.bigdata.hadoopstudy.lesson8.serializable.salarytotal;
 import org.apache.hadoop.io.IntWritable;
 
 /**
- * 针对数字创建自己的比较规则，执行降序排序
+ * 数字键值默认是按升序排序,针对数字创建自己的比较规则，执行降序排序
  */
 public class MyNumberComparator extends IntWritable.Comparator {
 
