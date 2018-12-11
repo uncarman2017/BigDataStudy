@@ -7,9 +7,6 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.redmaplesoft.bigdata.hadoopstudy.utils.MyFileUtil;
-
-import java.io.File;
 
 /**
  * 部门工资合计主程序
