@@ -37,7 +37,7 @@ public class WordCountUnitTest {
                 .withOutput(new Text("love"), new IntWritable(1))
                 .withOutput(new Text("Beijing"), new IntWritable(1));
 
-        //执行单元测试：对比  期望的结果  和  实际的结果
+        //执行单元测试：对比期望的结果和实际的结果
         driver.runTest();
     }
 

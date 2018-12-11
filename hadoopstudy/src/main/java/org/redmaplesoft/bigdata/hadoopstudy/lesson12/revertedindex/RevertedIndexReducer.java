@@ -7,7 +7,7 @@ import java.io.IOException;
 
 /**
  *  k3: 单词名
- *  v3: 数据文件名: 次数
+ *  v3: 数据文件名:次数
  *  k4: 单词名
  *  v4: (数据文件名:次数)(数据文件名:次数), 如(wordcount01.txt:1,wordcount02.txt:2)
  */
